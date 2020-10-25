@@ -4,8 +4,10 @@
 module.exports = function towelSort (matrix) {
   if (!matrix || !matrix.length) return [];
 
-  let array = matrix.toString().split(',').map(Number);
-
-  array = array.sort(function(a, b) {return a - b;});
-  return array;
+  let newMatrix = [];
+    for (let i = 0; i < matrix.length; i++) {
+        if (i % 2) matrix[i].reverse();
+        newMatrix.push(matrix[i]);
+    }
+    return newMatrix.flat();
 }
